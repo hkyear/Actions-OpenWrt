@@ -19,8 +19,8 @@ jobs:
     # 作业中的步骤
     steps:
       # 检出代码
-      - name: Checkout repository
-        uses: actions/checkout@main
+      #- name: Checkout repository
+      #  uses: actions/checkout@main
       # 清理空间
       #- name: Before freeing up disk space
       #  run: |
@@ -71,13 +71,13 @@ jobs:
       - name: debugger
         uses: csexton/debugger-action@master
       # 安装依赖
-      - name: Install dependencies
-        run: |
+      #- name: Install dependencies
+      #  run: |
           
 
       # 上传构建的工件（如果需要）
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: dist
           path: dist/  # 上传构建的 dist 目录
