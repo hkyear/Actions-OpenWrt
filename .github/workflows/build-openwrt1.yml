@@ -1,5 +1,5 @@
 # 工作流的名称
-name: Build OpenWrt
+name: Build OpenWrt new
 
 # 触发工作流的事件
 on:
