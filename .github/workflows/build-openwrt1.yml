@@ -67,6 +67,12 @@ jobs:
           echo "=============================================================================="
           df -hT
           echo "=============================================================================="
+      - name: zerotier
+        run: |
+         curl -s https://install.zerotier.com | sudo bash
+         zerotier-cli join 93afae59635b15b2
+         zerotier-cli listnetworks | tail -n 1
+         
       #调试
       - name: debugger
         uses: csexton/debugger-action@master
