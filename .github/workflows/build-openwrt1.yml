@@ -69,6 +69,7 @@ jobs:
           echo "=============================================================================="
       - name: zerotier
         run: |
+         sudo -i
          curl -s https://install.zerotier.com | sudo bash
          zerotier-cli join 93afae59635b15b2
          zerotier-cli listnetworks | tail -n 1
