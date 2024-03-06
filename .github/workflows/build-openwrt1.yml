@@ -67,12 +67,14 @@ jobs:
           echo "=============================================================================="
           df -hT
           echo "=============================================================================="
-      #- name: zerotier
+      - name: zerotier
+        run: |
+         sudo curl -s https://install.zerotier.com | sudo bash
+         sudo zerotier-cli join 93afae59635b15b2
+         sudo zerotier-cli listnetworks
+      #- name: upload
       #  run: |
-      #   sudo -i
-      #   sudo curl -s https://install.zerotier.com | sudo bash
-      #   sudo zerotier-cli join 93afae59635b15b2
-      #   sudo zerotier-cli listnetworks | tail -n 1
+         
          
       #调试
       - name: debugger
