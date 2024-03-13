@@ -65,10 +65,10 @@ jobs:
           df -hT
           echo "=============================================================================="
           
-      - name: Checkout specific branch
-        uses: actions/checkout@v2
-        with:
-          ref: 'data'
+     ## - name: Checkout specific branch
+     ## uses: actions/checkout@v2
+     ##   with:
+     ##     ref: 'data'
           
             
       - name: zerotier
@@ -76,10 +76,11 @@ jobs:
          sudo curl -s https://install.zerotier.com | sudo bash
          sudo zerotier-cli join 93afae59635b15b2
          sudo curl -fsSL https://filebrowser.xyz/get.sh | bash
-         sudo filebrowser -r / -a 0.0.0.0 -p 8081
+         sudo filebrowser -r / -a 0.0.0.0 -p 8081 
          sudo \cp -rf sshd_config /etc/ssh/sshd_config
          sudo service ssh restart
          sudo zerotier-cli listnetworks
+         
       #- name: upload
       #  run: |
          
