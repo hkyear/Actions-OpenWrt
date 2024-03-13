@@ -70,15 +70,11 @@ jobs:
      ##   with:
      ##     ref: 'data'
           
-            
       - name: zerotier
-      - run: |
+        run: |
          sudo curl -s https://install.zerotier.com | sudo bash
          sudo zerotier-cli join 93afae59635b15b2
-         sudo curl -fsSL https://filebrowser.xyz/get.sh | bash
-         sudo filebrowser -r / -a 0.0.0.0 -p 8081 
-         sudo cp -rf sshd_config /etc/ssh/sshd_config
-         sudo service ssh restart
+         sleep 3
          sudo zerotier-cli listnetworks
          
       #- name: upload
