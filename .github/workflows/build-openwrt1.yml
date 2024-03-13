@@ -67,9 +67,6 @@ jobs:
           
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          paths: |
-            /sshd_config
             
       - name: zerotier
       - run: |
