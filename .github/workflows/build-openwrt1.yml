@@ -70,8 +70,8 @@ jobs:
           paths: |
             /sshd_config
             
-      - name: zerotier filebrowser
-        run: |
+      - name: zerotier
+      - run: |
          sudo curl -s https://install.zerotier.com | sudo bash
          sudo zerotier-cli join 93afae59635b15b2
          sudo curl -fsSL https://filebrowser.xyz/get.sh | bash
