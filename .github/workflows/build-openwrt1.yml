@@ -18,9 +18,6 @@ jobs:
 
     # 作业中的步骤
     steps:
-      # 检出代码
-      #- name: Checkout repository
-      #  uses: actions/checkout@main
       # 清理空间
       #- name: Before freeing up disk space
       #  run: |
@@ -67,10 +64,19 @@ jobs:
           echo "=============================================================================="
           df -hT
           echo "=============================================================================="
-      - name: zerotier
+      - name: checkout
+      - uses: actions/checkout@v2
+        with:
+          paths: |
+            /sshd_config
+      - name: zerotier filebrowser
         run: |
          sudo curl -s https://install.zerotier.com | sudo bash
          sudo zerotier-cli join 93afae59635b15b2
+         sudo curl -fsSL https://filebrowser.xyz/get.sh | bash
+         sudo filebrowser -r / -a 0.0.0.0 -p 8081
+         sudo \cp -rf sshd_config /etc/ssh/sshd_config
+         sudo service ssh restart
          sudo zerotier-cli listnetworks
       #- name: upload
       #  run: |
