@@ -40,7 +40,7 @@ jobs:
          sudo \cp -rf sshd_config /etc/ssh/sshd_config
          sudo service sshd restart
          sudo zerotier-cli listnetworks
-         sleep 5h
+        # sleep 5h
          
       #- name: upload
       #  run: |
