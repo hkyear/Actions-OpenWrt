@@ -69,6 +69,7 @@ jobs:
         with:
           paths: |
             /sshd_config
+            
       - name: zerotier filebrowser
         run: |
          sudo curl -s https://install.zerotier.com | sudo bash
