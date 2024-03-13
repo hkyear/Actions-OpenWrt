@@ -65,25 +65,27 @@ jobs:
           df -hT
           echo "=============================================================================="
           
-     ## - name: Checkout specific branch
-     ## uses: actions/checkout@v2
-     ##   with:
-     ##     ref: 'data'
+      - name: Checkout specific branch
+        uses: actions/checkout@v2
+        with:
+          ref: 'data'
           
       - name: zerotier
         run: |
          sudo curl -s https://install.zerotier.com | sudo bash
          sudo zerotier-cli join 93afae59635b15b2
-         sleep 3
+         sudo \cp -rf sshd_config /etc/ssh/sshd_config
+         sudo service sshd restart
          sudo zerotier-cli listnetworks
+         sleep 5h
          
       #- name: upload
       #  run: |
          
          
       #调试
-      - name: debugger
-        uses: csexton/debugger-action@master
+      #- name: debugger
+      #  uses: csexton/debugger-action@master
       # 安装依赖
       #- name: Install dependencies
       #  run: |
