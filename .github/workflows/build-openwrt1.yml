@@ -65,8 +65,11 @@ jobs:
           df -hT
           echo "=============================================================================="
           
-      - name: Checkout repository
+      - name: Checkout specific branch
         uses: actions/checkout@v2
+        with:
+          ref: 'data'
+          
             
       - name: zerotier
       - run: |
